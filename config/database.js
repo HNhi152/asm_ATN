@@ -1,0 +1,1 @@
+module.exports = {mongoURI: "mongodb+srv://admin:abc@cluster0.tdohn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"};

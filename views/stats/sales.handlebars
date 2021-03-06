@@ -1,0 +1,21 @@
+<h3>Sales</h3>
+<form action="/sales" method="post">
+    <div class="form-group w-25">
+        <label for="category">Category:</label>
+        <select name="category" id="category" class="form-control">
+            <option>None</option>
+            {{#each categories}}
+            <option>{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group w-25">
+        <label for="totalSales">Total sales(&#36;):</label>
+        <input type="number" step="0.01" value="0" name="totalSales" id="totalSales" class="form-control">
+    </div>
+    <div class="form-group w-25">
+        <label for="datePicker">Date:</label>
+        <input type="text" name="date" id="datePicker" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>

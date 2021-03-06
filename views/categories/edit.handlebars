@@ -1,0 +1,17 @@
+<div class="card mx-auto" style="width: 40%">
+    <div class="card-body">
+        <h3>Edit category</h3>
+        <form action='/category/edit' method='post'>
+            <div class="form-group">
+                <label for="Id">Id</label>
+                <input type="text" class="form-control" id="id" value="{{category._id}}" aria-describedby="Id" disabled>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" value="{{category.name}}" placeholder="Name">
+            </div>
+            <input type="hidden" name="id" value="{{category._id}}">
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+    </div>
+</div>

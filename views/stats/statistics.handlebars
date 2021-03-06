@@ -1,0 +1,24 @@
+<h1>Statistics</h1>
+<form>
+    <div class="row">
+
+        <div class="form-group col-md-4">
+            <label for="category">Category:</label>
+            <select name="category" id="category" class="form-control">
+                <option>None</option>
+                {{#each categories}}
+                <option>{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="year">Year:</label>
+            <select name="year" id="year" class="form-control">
+                <option>2020</option>
+                <option>2019</option>
+                <option>2018</option>
+            </select>
+        </div>
+    </div>
+</form>
+<canvas id="statsChart"></canvas>
