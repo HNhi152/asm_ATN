@@ -1,11 +1,7 @@
 <div class="card mx-auto" style="width: 40%">
     <div class="card-body">
-        <h3>Edit product</h3>
-        <form action='/products/edit' method='post'>
-            <div class="form-group">
-                <label for="Id">Id</label>
-                <input type="text" class="form-control" id="id" value="{{product._id}}" aria-describedby="Id" disabled>
-            </div>
+        <h3>Add product</h3>
+        <form action='/products/add' method='post'>
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" name="name" id="name" value="{{product.name}}" placeholder="Name">
@@ -15,11 +11,7 @@
                 <select class="form-control" name="category" id="category">
                     <option>None</option>
                     {{#each categories}}
-                        {{#if isSelected }}
-                            <option selected>{{name}}</option>
-                        {{else}}
-                            <option>{{name}}</option>
-                        {{/if}}
+                        <option>{{name}}</option>
                     {{/each}}
                 </select>
             </div>
@@ -31,8 +23,7 @@
                 <label for="quantity">Quantity</label>
                 <input type="number" class="form-control" name="quantity" id="quantity" value="{{product.quantity}}" placeholder="Quantity">
             </div>
-            <input type="hidden" name="id" value="{{product._id}}">
-            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="submit" class="btn btn-primary">Add</button>
         </form>
     </div>
 </div>

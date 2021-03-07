@@ -9,6 +9,18 @@ const ProductSchema = new Schema({
     category: {
         type: String,
         required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    quantity: {
+        type: Number,
+        required: true
+    },
+    userId: {
+        type: Schema.ObjectId,
+        required: true
     }
 });
 

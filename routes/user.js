@@ -20,7 +20,6 @@ router.get('/logout', checkAuthenticated, (req, res) => {
 })
 
 router.post('/login', checkNotAuthenticated, (req, res, next) => {
-    console.log(req.body)
     passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/user/login'
@@ -46,7 +45,9 @@ router.post('/register', checkNotAuthenticated, (req, res) => {
             bcrypt.hash(password, salt, (err, hash) => {
                 User({
                     username,
-                    password: hash
+                    password: hash,
+                    name: req.body.name,
+                    role: req.body.role
                 }).save().then(user => {
                     res.status(200).send('ok')
                 }).catch(err => {

@@ -1,6 +1,17 @@
-function checkAuthenticated(req, res, next) {
+const mongoose = require("mongoose");
+
+require('../models/User');
+const User = mongoose.model('user')
+
+async function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         res.locals.isAuthenticated = true
+        if (req.user.role == 'admin') {
+            res.locals.isAdminRole = true
+
+            let users = await User.find({ role: 'staff' })
+            res.locals.users = users
+        }
         return next()
     }
 

@@ -49,11 +49,19 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+require('./models/User');
+const User = mongoose.model('user')
 
 app.use("/user", user);
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
 	if (req.isAuthenticated()) {
 		res.locals.isAuthenticated = true
+		if (req.user.role == 'admin') {
+			res.locals.isAdminRole = true
+
+			let users = await User.find({ role: 'staff' })
+			res.locals.users = users
+		}
 	}
 	res.render("home");
 });
